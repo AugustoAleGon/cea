@@ -8,9 +8,6 @@ const {
 const {
     pqr
 } = require('./PQR');
-const {
-    Visitante
-} = require('./Vistante.js');
 
 const url = 'mongodb+srv://sa:Mauro1990@devf-epdnd.mongodb.net/CEA_WEB?retryWrites=true'
 
@@ -27,6 +24,5 @@ mongoose.connect(url, {
 module.exports = {
     Users,
     Noticias,
-    pqr,
-    Visitante
+    pqr
 }

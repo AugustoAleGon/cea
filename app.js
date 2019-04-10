@@ -189,10 +189,10 @@ app.post('/api/v1/noticias/create', (req, res) => {
         creadoPor
     })
 
-    newNoticias.save((err, noticias) => {
+    newNoticias.save((err, Noticias) => {
         !err
             ?
-            res.status(201).send(noticias) :
+            res.status(201).send(Noticias) :
             res.status(409).send(err)
     })
 })
@@ -202,8 +202,8 @@ app.post('/api/v1/noticias/create', (req, res) => {
 
 app.get('/api/v1/noticias/get', (req, res) => {
     Noticias.find().exec()
-        .then(noticias => {
-            res.status(200).send(noticias)
+        .then(Noticias => {
+            res.status(200).send(Noticias)
         })
         .catch(err => {
             res.status(404).send(err)
@@ -214,15 +214,15 @@ app.get('/api/v1/noticias/get', (req, res) => {
 
 app.put('/api/v1/noticias/update/:noticiasid', (req, res) => {
     const {
-        noticiasid
+        Noticiasid
     } = req.params
-    Noticias.findByIdAndUpdate(noticiasid, {
+    Noticias.findByIdAndUpdate(Noticiasid, {
             $set: req.body
         }, {
             new: true
         }).exec()
-        .then((noticias) => {
-            res.status(200).send(noticias)
+        .then((Noticias) => {
+            res.status(200).send(Noticias)
         }).catch((err) => {
             res.status(404).send(err)
         });
@@ -232,9 +232,9 @@ app.put('/api/v1/noticias/update/:noticiasid', (req, res) => {
 
 app.delete('/api/v1/noticias/delete/:noticiasid', (req, res) => {
     const {
-        noticiasid
+        Noticiasid
     } = req.params
-    noticias.findByIdAndUpdate(noticiasid, {
+    Noticias.findByIdAndUpdate(Noticiasid, {
             $set: {
                 is_active: false
             }
@@ -242,7 +242,7 @@ app.delete('/api/v1/noticias/delete/:noticiasid', (req, res) => {
             new: true
         }).exec()
         .then((Noticias) => {
-            res.status(200).send(`The noticia ${noticiasid} has been removed`)
+            res.status(200).send(`The noticia ${Noticiasid} has been removed`)
         }).catch((err) => {
             res.status(409).send(err)
         });
