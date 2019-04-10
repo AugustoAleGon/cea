@@ -2,7 +2,7 @@ const express = require('express');
 const {
     Users,
     noticias,
-    pqr,
+    peticiones,
     dbConnect
 } = require('./models')
 const bodyParser = require('body-parser')
@@ -201,7 +201,7 @@ app.post('/api/v1/noticias/create', (req, res) => {
 // ----------> Endpoint obtener todas las noticias <---------- //
 
 app.get('/api/v1/noticias/get', (req, res) => {
-    Noticias.find().exec()
+    noticias.find().exec()
         .then(noticias => {
             res.status(200).send(noticias)
         })
@@ -209,6 +209,10 @@ app.get('/api/v1/noticias/get', (req, res) => {
             res.status(404).send(err)
         })
 })
+
+
+
+
 
 // ----------> Endpoint modificar las noticias <---------- //
 
@@ -255,37 +259,39 @@ app.delete('/api/v1/noticias/delete/:noticiasid', (req, res) => {
 
 // ----------> Endpoint CREAR pqr del lado de VISITANTE POST ---------- //
 
-app.post('/api/v1/pqr/create', (req, res) => {
+app.post('/api/v1/peticiones/create', (req, res) => {
     const {
         nombre,
         email,
         pqr,
         mensaje
     } = req.body
-    const newpqr = pqr({
+    const newPeticiones = peticiones ({
         nombre,
         email,
         pqr,
         mensaje
     })
 
-    newpqr.save((err, pqr) => {
+    newPeticiones.save((err, peticiones) => {
         !err
             ?
-            res.status(201).send(pqr) :
+            res.status(201).send(peticiones) :
             res.status(409).send(err)
     })
 })
 
 
+
+
 // ----------> Endpoint RESPONDER PQR del lado del ADMIN PATCH ---------- //
 
-app.put('/api/v1/pqr/respuesta/:pqrid', (req, res) => {
+app.put('/api/v1/peticiones/respuesta/:peticionesid', (req, res) => {
     
-    const { pqrid } = req.params
-    pqr.findByIdAndUpdate(pqrid, { $set: req.body }, { new: true }).exec()
-        .then((pqr) => {
-            res.status(200).send(pqr)
+    const { peticionesid } = req.params
+    peticiones.findByIdAndUpdate(peticionesid, { $set: req.body }, { new: true }).exec()
+        .then((peticiones) => {
+            res.status(200).send(peticiones)
         }).catch((err) => {
             res.status(409).send(err)
         });

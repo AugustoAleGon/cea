@@ -9,7 +9,7 @@ const {
 } = require('./noticias');
 
 const {
-    pqr
+    peticiones
 } = require('./peticiones');
 
 const url = 'mongodb+srv://sa:Mauro1990@devf-epdnd.mongodb.net/CEA_WEB?retryWrites=true'
@@ -27,5 +27,5 @@ mongoose.connect(url, {
 module.exports = {
     Users,
     noticias,
-    pqr
+    peticiones
 }

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const pqrSchema = new mongoose.Schema({
+const peticionesSchema = new mongoose.Schema({
     nombre: {
         type: String,
         required: true
@@ -40,8 +40,8 @@ const pqrSchema = new mongoose.Schema({
     timestamps: true
 });
 
-const pqr = mongoose.model('pqr', pqrSchema);
+const peticiones = mongoose.model('peticiones', peticionesSchema);
 
 module.exports = {
-    pqr
+    peticiones
 }
