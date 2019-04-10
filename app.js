@@ -253,19 +253,19 @@ app.delete('/api/v1/noticias/delete/:noticiasid', (req, res) => {
 // ************************ C R U D     P  Q  R ************************ //
 
 
-// ----------> Endpoint CREAR PQR del lado de VISITANTE POST ---------- //
+// ----------> Endpoint CREAR pqr del lado de VISITANTE POST ---------- //
 
 app.post('/api/v1/pqr/create', (req, res) => {
     const {
         nombre,
         email,
-        PQR,
+        pqr,
         mensaje
     } = req.body
     const newpqr = pqr({
         nombre,
         email,
-        PQR,
+        pqr,
         mensaje
     })
 

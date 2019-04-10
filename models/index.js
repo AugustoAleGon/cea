@@ -7,7 +7,7 @@ const {
 } = require('./Noticias');
 const {
     pqr
-} = require('./PQR');
+} = require('./pqr');
 
 const url = 'mongodb+srv://sa:Mauro1990@devf-epdnd.mongodb.net/CEA_WEB?retryWrites=true'
 

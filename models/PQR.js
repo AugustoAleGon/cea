@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const PQRSchema = new mongoose.Schema({
+const pqrSchema = new mongoose.Schema({
     nombre: {
         type: String,
         required: true
@@ -11,7 +11,7 @@ const PQRSchema = new mongoose.Schema({
         required: true
     },
 
-    PQR: {
+    pqr: {
         type: String,
         required: true
     },
@@ -40,7 +40,7 @@ const PQRSchema = new mongoose.Schema({
     timestamps: true
 });
 
-const pqr = mongoose.model('pqr', PQRSchema);
+const pqr = mongoose.model('pqr', pqrSchema);
 
 module.exports = {
     pqr
