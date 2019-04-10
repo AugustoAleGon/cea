@@ -286,16 +286,24 @@ app.post('/api/v1/peticiones/create', (req, res) => {
 app.get('/api/v1/peticiones/get', (req, res) => {
     peticiones.find().exec()
         .then(peticiones => {
-            res.status(200).send(peticiones)
+            res.status(200).send(Users)
         })
         .catch(err => {
             res.status(404).send(err)
         })
 })
 
+// ----------> Endpoint OBTENER ESPECIFICO todos las peticiones GET <---------- //
 
-
-
+app.get('/api/v1/peticiones/get/:peticionesid', (req, res) => {
+    const { peticionesid } = req.params
+    peticiones.findById(peticionesid).exec()
+        .then((peticiones) => {
+            res.status(200).send(peticiones)
+        }).catch((err) => {
+            res.status(404).send(err)
+        });
+})
 
 
 
@@ -328,7 +336,7 @@ app.put('/api/v1/peticiones/respuesta/:peticionesid', (req, res) => {
 
 
 
-
+// ----------> Endpoint OBTENER un usuario en específico GET<---------- //
 
 
 
