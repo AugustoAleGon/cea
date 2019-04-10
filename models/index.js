@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
+
 const {
     Users
 } = require('./Users');
+
 const {
     noticias
 } = require('./noticias');
+
 const {
     pqr
 } = require('./pqr');
