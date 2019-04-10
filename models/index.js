@@ -10,7 +10,7 @@ const {
 
 const {
     pqr
-} = require('./pqr');
+} = require('./peticiones');
 
 const url = 'mongodb+srv://sa:Mauro1990@devf-epdnd.mongodb.net/CEA_WEB?retryWrites=true'
 
