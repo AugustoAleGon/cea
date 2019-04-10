@@ -3,8 +3,8 @@ const {
     Users
 } = require('./Users');
 const {
-    Noticias
-} = require('./Noticias');
+    noticias
+} = require('./noticias');
 const {
     pqr
 } = require('./pqr');
@@ -23,6 +23,6 @@ mongoose.connect(url, {
 
 module.exports = {
     Users,
-    Noticias,
+    noticias,
     pqr
 }

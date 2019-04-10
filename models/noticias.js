@@ -30,8 +30,8 @@ const NoticiasSchema = new mongoose.Schema({
     timestamps: true
 });
 
-const Noticias = mongoose.model('Noticias', NoticiasSchema);
+const noticias = mongoose.model('noticias', NoticiasSchema);
 
 module.exports = {
-    Noticias
+    noticias
 }

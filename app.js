@@ -1,7 +1,7 @@
 const express = require('express');
 const {
     Users,
-    Noticias,
+    noticias,
     pqr,
     dbConnect
 } = require('./models')
@@ -183,16 +183,16 @@ app.post('/api/v1/noticias/create', (req, res) => {
         cuerpoNoticia,
         creadoPor
     } = req.body
-    const newNoticias = Noticias({
+    const newNoticias = noticias({
         titulo,
         cuerpoNoticia,
         creadoPor
     })
 
-    newNoticias.save((err, Noticias) => {
+    newNoticias.save((err, noticias) => {
         !err
             ?
-            res.status(201).send(Noticias) :
+            res.status(201).send(noticias) :
             res.status(409).send(err)
     })
 })
@@ -202,8 +202,8 @@ app.post('/api/v1/noticias/create', (req, res) => {
 
 app.get('/api/v1/noticias/get', (req, res) => {
     Noticias.find().exec()
-        .then(Noticias => {
-            res.status(200).send(Noticias)
+        .then(noticias => {
+            res.status(200).send(noticias)
         })
         .catch(err => {
             res.status(404).send(err)
@@ -214,15 +214,15 @@ app.get('/api/v1/noticias/get', (req, res) => {
 
 app.put('/api/v1/noticias/update/:noticiasid', (req, res) => {
     const {
-        Noticiasid
+        noticiasid
     } = req.params
-    Noticias.findByIdAndUpdate(Noticiasid, {
+    Noticias.findByIdAndUpdate(noticiasid, {
             $set: req.body
         }, {
             new: true
         }).exec()
-        .then((Noticias) => {
-            res.status(200).send(Noticias)
+        .then((noticias) => {
+            res.status(200).send(noticias)
         }).catch((err) => {
             res.status(404).send(err)
         });
@@ -232,17 +232,17 @@ app.put('/api/v1/noticias/update/:noticiasid', (req, res) => {
 
 app.delete('/api/v1/noticias/delete/:noticiasid', (req, res) => {
     const {
-        Noticiasid
+        noticiasid
     } = req.params
-    Noticias.findByIdAndUpdate(Noticiasid, {
+    noticias.findByIdAndUpdate(noticiasid, {
             $set: {
                 is_active: false
             }
         }, {
             new: true
         }).exec()
-        .then((Noticias) => {
-            res.status(200).send(`The noticia ${Noticiasid} has been removed`)
+        .then((noticias) => {
+            res.status(200).send(`The noticia ${noticiasid} has been removed`)
         }).catch((err) => {
             res.status(409).send(err)
         });
@@ -283,7 +283,7 @@ app.post('/api/v1/pqr/create', (req, res) => {
 app.put('/api/v1/pqr/respuesta/:pqrid', (req, res) => {
     
     const { pqrid } = req.params
-    Ticket.findByIdAndUpdate(pqrid, { $set: req.body }, { new: true }).exec()
+    pqr.findByIdAndUpdate(pqrid, { $set: req.body }, { new: true }).exec()
         .then((pqr) => {
             res.status(200).send(pqr)
         }).catch((err) => {
