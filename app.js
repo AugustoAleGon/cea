@@ -1,7 +1,7 @@
 const express = require('express');
 const {
     Users,
-    noticias,
+    Noticias,
     pqr,
     dbConnect
 } = require('./models')
