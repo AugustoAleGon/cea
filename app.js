@@ -281,10 +281,26 @@ app.post('/api/v1/peticiones/create', (req, res) => {
     })
 })
 
+// ----------> Endpoint OBTENER todos las peticiones GET <---------- //
+
+app.get('/api/v1/peticiones/get', (req, res) => {
+    peticiones.find().exec()
+        .then(peticiones => {
+            res.status(200).send(peticiones)
+        })
+        .catch(err => {
+            res.status(404).send(err)
+        })
+})
 
 
 
-// ----------> Endpoint RESPONDER PQR del lado del ADMIN PATCH ---------- //
+
+
+
+
+
+// ----------> Endpoint RESPONDER PQR del lado del ADMIN PUT ---------- //
 
 app.put('/api/v1/peticiones/respuesta/:peticionesid', (req, res) => {
     
