@@ -220,7 +220,7 @@ app.put('/api/v1/noticias/update/:noticiasid', (req, res) => {
     const {
         noticiasid
     } = req.params
-    Noticias.findByIdAndUpdate(noticiasid, {
+    noticias.findByIdAndUpdate(noticiasid, {
             $set: req.body
         }, {
             new: true
