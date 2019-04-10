@@ -4,7 +4,7 @@ const {
     noticias,
     pqr,
     dbConnect
-} = require('./models/Index')
+} = require('./models')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
