@@ -286,7 +286,7 @@ app.post('/api/v1/peticiones/create', (req, res) => {
 app.get('/api/v1/peticiones/get', (req, res) => {
     peticiones.find().exec()
         .then(peticiones => {
-            res.status(200).send(Users)
+            res.status(200).send(peticiones)
         })
         .catch(err => {
             res.status(404).send(err)
