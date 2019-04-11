@@ -313,13 +313,16 @@ app.get('/api/v1/peticiones/get/:peticionesid', (req, res) => {
 app.put('/api/v1/peticiones/respuesta/:peticionesid', (req, res) => {
     
     const { peticionesid } = req.params
-    peticiones.findByIdAndUpdate(peticionesid, { $set: req.body }, { new: true }).exec()
+    const { respuesta, responsable, estado } = req.body
+
+    peticiones.findByIdAndUpdate(peticionesid, { $set: {respuesta: respuesta, responsable: responsable, estado: estado} }, { new: true }).exec()
         .then((peticiones) => {
             res.status(200).send(peticiones)
         }).catch((err) => {
             res.status(409).send(err)
         });
 })
+
 
 // app.put('/api/v1/message/:id', (req, res) => {
 //     const { id } = req.params
@@ -333,10 +336,6 @@ app.put('/api/v1/peticiones/respuesta/:peticionesid', (req, res) => {
 //             res.status(409).send(err)
 //         })
 // });
-
-
-
-// ----------> Endpoint OBTENER un usuario en específico GET<---------- //
 
 
 
