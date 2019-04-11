@@ -24,11 +24,13 @@ const peticionesSchema = new mongoose.Schema({
     // Lado Super Admin
 
     respuesta: {
-        type: String
+        type: String,
+        default: "-"
     },
 
     responsable: {
-        type: String
+        type: String,
+        default: "-"
     },
 
     estado: {
