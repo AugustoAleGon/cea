@@ -306,9 +306,6 @@ app.get('/api/v1/get/peticiones/:_id', (req, res) => {
 })
 
 
-
-
-
 // ----------> Endpoint RESPONDER PQR del lado del ADMIN PUT ---------- //
 
 app.put('/api/v1/peticiones/respuesta/:peticionesid', (req, res) => {
