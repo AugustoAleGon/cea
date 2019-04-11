@@ -295,15 +295,16 @@ app.get('/api/v1/peticiones/get', (req, res) => {
 
 // ----------> Endpoint OBTENER ESPECIFICO todos las peticiones GET <---------- //
 
-app.get('/api/v1/peticiones/get/:_id', (req, res) => {
+app.get('/api/v1/get/peticiones/:_id', (req, res) => {
     const { _id } = req.params
     peticiones.findById(_id).exec()
         .then((peticiones) => {
             res.status(200).send(peticiones)
         }).catch((err) => {
             res.status(404).send(err)
-        });
+        })
 })
+
 
 
 
