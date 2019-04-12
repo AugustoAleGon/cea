@@ -203,7 +203,7 @@ app.post('/api/v1/noticias/create', (req, res) => {
 // ----------> Endpoint obtener todas las noticias <---------- //
 
 app.get('/api/v1/noticias/get', (req, res) => {
-    noticias.find().exec()
+    noticias.find({activo:true}).exec()
         .then(noticias => {
             res.status(200).send(noticias)
         })
@@ -242,7 +242,7 @@ app.delete('/api/v1/noticias/delete/:noticiasid', (req, res) => {
     } = req.params
     noticias.findByIdAndUpdate(noticiasid, {
             $set: {
-                is_active: false
+                activo: false
             }
         }, {
             new: true
