@@ -179,11 +179,13 @@ app.delete('/api/v1/Users/delete/:usersid', (req, res) => {
 
 app.post('/api/v1/noticias/create', (req, res) => {
     const {
+        imagen,
         titulo,
         cuerpoNoticia,
         creadoPor
     } = req.body
     const newNoticias = noticias({
+        imagen,
         titulo,
         cuerpoNoticia,
         creadoPor
